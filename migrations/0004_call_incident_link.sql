@@ -1,0 +1,1 @@
+ALTER TABLE emergency_calls ADD COLUMN IF NOT EXISTS incident_id BIGINT REFERENCES incidents(id);

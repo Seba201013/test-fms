@@ -1,0 +1,1 @@
+ALTER TABLE custody_records ADD COLUMN IF NOT EXISTS incident_id bigint REFERENCES incidents(id)

@@ -1,0 +1,3 @@
+import { db } from 'hatchable';
+export const access='user'; export const methods=['GET','POST'];
+export default async function(req,res){const id=Number(req.query.id||req.body?.incident_id);if(!id)return res.status(400).json({error:'incident id required'});if(req.method==='GET'){const {rows}=await db.query("SELECT * FROM incident_logs WHERE incident_id=$1 ORDER BY created_at",[id]);return res.json({logs:rows});}const b=req.body||{};if(!b.body)return res.status(400).json({error:'body required'});const {rows}=await db.query("INSERT INTO incident_logs (incident_id,entry_type,body,actor_id,actor_name) VALUES ($1,$2,$3,$4,$5) RETURNING *",[id,b.entry_type||'note',b.body,req.user.id,req.user.name||req.user.email]);return res.status(201).json({log:rows[0]});}

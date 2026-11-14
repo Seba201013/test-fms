@@ -1,0 +1,1 @@
+INSERT INTO system_settings (key, value) VALUES ('general', '{"service_name":"Éire Roleplay Emergency Services","control_room":"National Control","default_division":"National","incident_prefix":"CAD","custody_prefix":"CUS","public_reporting":true,"training_banner":true}'::jsonb) ON CONFLICT (key) DO NOTHING;

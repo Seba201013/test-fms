@@ -1,0 +1,11 @@
+ALTER TABLE incidents ADD COLUMN IF NOT EXISTS region text DEFAULT 'Dublin';
+ALTER TABLE incidents ADD COLUMN IF NOT EXISTS division text;
+ALTER TABLE incidents ADD COLUMN IF NOT EXISTS call_taker text;
+ALTER TABLE incidents ADD COLUMN IF NOT EXISTS dispatcher text;
+ALTER TABLE incidents ADD COLUMN IF NOT EXISTS quality_status text DEFAULT 'unreviewed';
+ALTER TABLE incidents ADD COLUMN IF NOT EXISTS quality_notes text;
+ALTER TABLE incidents ADD COLUMN IF NOT EXISTS target_minutes integer;
+ALTER TABLE incidents ADD COLUMN IF NOT EXISTS vulnerability_flags jsonb DEFAULT '[]'::jsonb;
+ALTER TABLE incidents ADD COLUMN IF NOT EXISTS intelligence_flags jsonb DEFAULT '[]'::jsonb;
+ALTER TABLE incidents ADD COLUMN IF NOT EXISTS handover_notes text;
+ALTER TABLE units ADD COLUMN IF NOT EXISTS capabilities jsonb DEFAULT '[]'::jsonb;

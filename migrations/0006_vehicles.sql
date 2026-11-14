@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS vehicles (id bigserial PRIMARY KEY, registration text UNIQUE NOT NULL, make text, model text, colour text, owner_name text, markers jsonb NOT NULL DEFAULT '[]'::jsonb, notes text, created_at timestamptz NOT NULL DEFAULT now(), updated_at timestamptz NOT NULL DEFAULT now())

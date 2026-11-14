@@ -1,0 +1,4 @@
+import { db } from 'hatchable';
+export const access='public'; export const methods=['POST'];
+function n(){return 'WEB-'+new Date().getUTCFullYear()+'-'+String(Date.now()).slice(-7)}
+export default async function(req,res){const b=req.body||{};if(!b.report_type||!b.details)return res.status(400).json({error:'report_type and details required'});if(String(b.details).length>5000)return res.status(400).json({error:'details too long'});const {rows}=await db.query("INSERT INTO public_reports (report_no,report_type,reporter_name,contact_email,contact_phone,location_text,details,urgency) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING report_no,status,created_at",[n(),b.report_type,b.reporter_name||null,b.contact_email||null,b.contact_phone||null,b.location_text||null,b.details,b.urgency||'routine']);return res.status(201).json({report:rows[0],message:'Roleplay report received. This service is not connected to real emergency services.'});}

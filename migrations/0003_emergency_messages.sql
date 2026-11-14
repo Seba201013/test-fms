@@ -1,0 +1,1 @@
+CREATE TABLE emergency_call_messages (id BIGSERIAL PRIMARY KEY, call_id BIGINT NOT NULL REFERENCES emergency_calls(id) ON DELETE CASCADE, sender_type TEXT NOT NULL, sender_name TEXT NOT NULL, body TEXT NOT NULL, created_at TIMESTAMPTZ NOT NULL DEFAULT now())

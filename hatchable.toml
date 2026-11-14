@@ -1,0 +1,6 @@
+name = "Éire Command & Control"
+
+[auth]
+enabled = true
+providers = ["email"]
+signup = "invite"
