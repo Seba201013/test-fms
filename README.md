@@ -1,3 +1,5 @@
+[![Deploy to Hatchable](https://hatchable.com/deploy-button.svg)](https://hatchable.com/deploy?repo=https://github.com/Seba201013/test-fms)
+
 # Éire Command & Control
 
 A detailed fictional Irish Roblox roleplay command-and-control platform with CAD, call handling, custody, supervision, MDT, admin, public reporting, and secure invite-only staff accounts.
